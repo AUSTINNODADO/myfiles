@@ -1,0 +1,144 @@
+Practice task:
+Example 1
+BEGIN DBMS_OUTPUT.PUT_LINE
+    ('Hello!, Austin');
+END;
+--Ques: What do you think DBMS_OUTPUT.PUT_LINE does?
+DBMS_OUTPUT.PUT_LINE is a PL/SQL procedure that prints messages to the console or output buffer.
+
+Example 2
+DECLARE
+    my_name VARCHAR2(50) := 'Austin';
+    age NUMBER := 17;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE
+    ('My name is ' || my_name ||
+    ' and I am ' || age || 
+    ' years old.');
+END;
+
+Ques: What happens if you change VARCHAR2 to NUMBER for my_name?
+The code will  error because DBMS_OUTPUT.PUT_LINE expects a string
+
+Module 1 Activity:
+DECLARE 
+fav_movie VARCHAR2(50) := 'Barcelona'; 
+director VARCHAR2(50) := 'Kathy Garcia Molina'; 
+Actors VARCHAR2(50):= 'Daniel Padilla,Kathryn Bernardo'; 
+BEGIN 
+DBMS_OUTPUT.PUT_LINE('Fav_movie: ' || fav_movie || ', director: ' || director || ', Actors: ' || Actors); 
+ 
+END;
+
+--Challenge Questions:
+How would you modify the code if you added another copy of the item?
+1. Using INSERT UPDATE to create a new row.
+
+
+‌Could you add an extra detail, like genre or type?
+2. Yes, using INSERT to add new records or rows of data in the table
+
+
+--Module 2 Activity:
+DECLARE
+    daily_allowance NUMBER := 30;
+    weeks NUMBER := 5;
+    total_allowance NUMBER;
+BEGIN
+    total_allowance := 
+    daily_allowance * weeks;
+    DBMS_OUTPUT.PUT_LINE('After ' ||
+    weeks || ' week, my total allowance is ' || 
+    total_allowance || ' pesos.');
+END;
+
+--Challenge Questions:
+‌How would you modify the code if your monthly savings amount changed?
+1. I will use the  UPDATE  to modify the existing data in a table
+
+
+--Module 3 Activity:
+DECLARE
+ average NUMBER := 91;
+BEGIN
+   IF average <= 91 THEN
+   DBMS_OUTPUT.PUT_LINE
+   ('Congratulations, what a nice!, gogogogooo!');
+ELSE
+   DBMS_OUTPUT.PUT_LINE('Ahh beter lock next time . keep it up!');
+
+END IF;
+END;
+
+--Challenge Questions:
+What happens if the condition changes (e.g., passing grade increases)?
+1. It depends on the type of query and the context in which the condition is applied.
+
+
+--Module 4 Activity:
+CREATE TABLE bestfriend (
+    Friend_id NUMBER,
+    Friend_name VARCHAR2(50),
+    Age NUMBER
+);
+
+
+INSERT INTO bestfriend (Friend_id, Friend_name, Age) VALUES (1, 'Marie', 17);
+
+INSERT INTO bestfriend (Friend_id, Friend_name, Age) VALUES (2, 'kayla', 17);
+
+INSERT INTO bestfriend (Friend_id, Friend_name, Age) VALUES (3, 'carl', 17);
+
+INSERT INTO my_bestfriend (Friend_id, Friend_name, Age) VALUES (4, 'katte', 18);
+
+INSERT INTO my_bestfriend (Friend_id, Friend_name, Age) VALUES (5, 'lyca', 17);
+
+
+--Challenge Questions:
+1. Update an items details 
+UPDATE my_bestfriend
+SET Age = 17
+WHERE Friend_name = 'Marie';
+
+2. Delete an item from the table
+DELETE FROM my_bestfriend
+WHERE Friend_name = 'kate';
+
+--Module 5 Activity:
+CREATE TABLE my_fav_heroes(
+    hero_id NUMBER,
+    hero_name VARCHAR2(50),
+    win_rate NUMBER
+);
+
+INSERT INTO my_fav_heroes(hero_id,hero_name,win_rate)
+VALUES(1,'Guinivere',62);
+
+INSERT INTO my_fav_heroes(hero_id,hero_name,win_rate)
+VALUES(2,'kagura',42);
+
+INSERT INTO my_fav_heroes(hero_id,hero_name,win_rate)
+VALUES(3,'lesley',55);
+
+CREATE TABLE Favorite_skin(
+    skin_id NUMBER,
+    hero_id NUMBER,
+    skin_name VARCHAR2(50),
+    matches NUMBER
+);
+
+INSERT INTO Favorite_skin(skin_id,hero_id,skin_name,matches)
+VALUES(1,1,'pision of tomorrow',657);
+
+INSERT INTO Favorite_skin(skin_id,hero_id,skin_name,matches)
+VALUES(2,2,'Cherry Witch',235);
+
+INSERT INTO Favorite_skin(skin_id,hero_id,skin_name,matches)
+VALUES(3,3,'Eyes of eternity',42);
+
+
+select*
+FROM my_fav_heroes
+JOIN Favorite_skin
+ON my_fav_heroes.hero_id = 
+    Favorite_skin.skin_id;
