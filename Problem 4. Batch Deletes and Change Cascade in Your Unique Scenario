@@ -1,0 +1,13 @@
+1.Delete record based on the condition.
+DELETE FROM Tin_Owner WHERE id = 1 ;
+
+this command delete record where id is 1.
+
+2.Drop Table with Cascade Constraints
+DROP TABLE Tin_phone CASCADE CONSTRAINTS;
+
+This command will delete all records and the table in TIN_PHONE.
+
+Reflection:
+CASCADE CONSTRAINTS ensures that the record in your table is deleted.
+its important to delete ensuring that your data remains consistent and accurate.
