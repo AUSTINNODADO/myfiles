@@ -1,0 +1,56 @@
+1. DEFINE YOUR ENTITIES:
+   •Owner Table:
+    id INT(Primary Key)
+    owner_ name VARCHAR(50)
+    owner_id INT
+    
+
+   •Brand Table:
+     Id INT (Primary Key)
+      Phone_brand VARCHAR2(50)
+      Owner_id INT (Foreign Key referencing Owner.Owner_id)
+
+2. Enforce a Unique Constraint
+   - Unique constraints are applied on AGE in OWNER  and MODEL in BRAND
+
+3. EXAMPLE OUTPUT 
+  
+CREATE TABLE Tin_OWNER( 
+id NUMBER PRIMARY KEY, 
+owner_name VARCHAR2(100), 
+owner_id NUMBER, 
+age NUMBER)
+
+INSERT INTO Tin_Owner(id, owner_name, owner_id,age)  
+VALUES(1, 'Carl',097792416,17)
+
+INSERT INTO Tin_Owner(id, owner_name, owner_id,age)  
+VALUES(2, 'Marie',096892417,17)
+
+INSERT INTO Tin_Owner(id, owner_name, owner_id,age)  
+VALUES(3, 'Kayla',099692426,17)
+
+CREATE TABLE Tin_phone( 
+id NUMBER, 
+phone_brand VARCHAR2(100), 
+model VARCHAR2(50), 
+owner_id NUMBER, 
+FOREIGN KEY (id) REFERENCES Tin_owner(id) 
+
+   INSERT INTO Tin_brand(id, phone_brand,model, owner_id)
+VALUES (1, 'Vivo', 'VivoY18' 097792416);
+
+INSERT INTO Tin_brand(id, phone_brand,model, owner_id)
+VALUES (3, 'Oppo', 'Y16' 096892417);
+       
+   
+
+ The foreign key relationship between the Tin_OWNER and Tin_BRAND tables is essential for maintaining data integrity. 
+The owner_id in Tin_BRAND ensures that each phone brand record is linked to a valid owner in Tin_OWNER, preventing orphaned brand entries. 
+This setup makes it easy to track which owner owns which phone brand, creating a clear and accurate relationship between the two entities.
+
+
+4. Reflection
+   Foreign keys ensure that each owner of the phone  is associated with an existing owner_id in owner,
+while unique constraints on 'Age` and `Model` prevent duplicate records, maintaining data accuracy.
+This setup ensures each owner of phone and owner_id has unique entries, making it more easy to track the owner of that phone.
