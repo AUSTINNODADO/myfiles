@@ -1,0 +1,19 @@
+1. Add a New Column to Each Table:
+   - In Owner add `password` to represent that phone is to the owner.
+   - In brand, add `year_buy` it represent when did they buy that phone .
+
+2. Apply a Unique Constraint:
+   - We’ll make `password` unique in owner to reflect that each phone has a unique password.
+
+
+ALTER TABLE Tin_OWNER
+ADD password INTEGER UNIQUE;
+
+ALTER TABLE Tin_phone
+ADD year_buy INTEGER;
+   
+   
+
+
+3. Reflection:
+The unique constraint on `password` ensures that each of thier phone  has a unique password, to know that this phone is in the owner . This adds depth to the data, helping the owner to make it easy to track their phones.
