@@ -1,0 +1,21 @@
+1.create and Test duplicates
+
+CREATE TABLE Tin_OWNER( 
+id NUMBER PRIMARY KEY, 
+owner_name VARCHAR2(100), 
+owner_id NUMBER, 
+age NUMBER)
+
+2.example error testing script
+insert some sample record with unique user_name and title values.
+
+INSERT INTO Tin_Owner(id, owner_name, owner_id,age)  
+VALUES(1, 'Carl',097792416,17)
+
+3. observed and documment errors
+ORA-00001: unique constraint (SQL_WPEFBCMSXCDDBKVGWYPCIPKUD.SYS_C00172999095)violated ORA-06512: at "SYS.DBMS_SQL", line 1721
+
+4. Reflection:
+The data based will shown an error,(e.g.,'ORA-00001: unique constraint')
+indicate that the record you enter is dupilicated.unique constraint 
+prevent data entry that is duplicate.
