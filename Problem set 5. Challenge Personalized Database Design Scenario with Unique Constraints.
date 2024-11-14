@@ -1,0 +1,35 @@
+1.Define youre unique scenario.
+
+TBL1COSTUMER_INFO and TBL2COSTUMER_ORDERS the relationship between this table is that costumer the orders and their address one costumer can have multiple orders, but each orders has only one address to deliver the orders.
+
+2.Apply unique constraints.
+Costumer_info: ensure that each of the costumer has unique id the name and address 
+
+Orders : Ensures that the orders of the costumer is secure and not difficult to locate.
+
+CREATE TABLE TBL1COSTUMER_INFO(
+    ID NUMBER,
+    COSTUMER_NUM NUMBER,
+    NAME VARCHAR2(200),
+    ADRESS VARCHAR2(200)
+)
+
+
+CREATE TABLE TBL2COSTUMER_ORDERS(
+    ID NUMBER,
+    NAME VARCHAR2(100),
+    ITEM VARCHAR2(50),
+    ITEM_SIZE VARCHAR2(50),
+    COSTUMER_NUM NUMBER
+)
+
+3.Alter the sturcture.
+
+ALTER TABLE TBL1COSTUMER_INFO
+ADD phone_number INTEGER UNIQUE ;
+
+4. Reflection: Unique constraints and foreign keys are essential for database integrity.
+They ensure that data is accurate, consistent, and reliable.
+Unique constraints prevent duplicate records, while foreign keys maintain relationships between tables, 
+ensuring data consistency. 
+This makes data retrieval and management much easier, as you can quickly find specific information and avoid errors caused by inconsistent data.
